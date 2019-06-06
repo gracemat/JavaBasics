@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class ABankLoan {
 	public static void main(String[] args) {
+		ABankLoan obj = new ABankLoan();
+		obj.bankName();
 		
 	}
 public void bankName()
@@ -28,12 +30,12 @@ public int getApplicantCategory()
 public double getTotalAmount()
 {
 	double carprice = 12000;
-	double loanapplied = 15500;
-	double finalamount = carprice + loanapplied;
+	double registration = 5500;
+	double finalamount = carprice + registration;
 	return finalamount;
 }
 
-public boolean isEligible() {
+public boolean isEligible() {//we need two return statements here one for if block and other for method
 	System.out.println("Is Applicant cleared Credit History check:");
 	boolean flag = false;
 	String Applicantname = "Megan";
@@ -43,17 +45,39 @@ public boolean isEligible() {
 	}
 	return flag;
 }
+
 public float  paymentAmount(float interestamount,float monthlyinstalment)
 {
+	System.out.println("Payment this month is: ");
 	float payment = interestamount + monthlyinstalment;
 	return payment;
 }
 
-public String[] loanTypeAndDetails(char l)
+public String getDiffLoan(String loanName) {
+	if(loanName.equalsIgnoreCase("Home"))
+	{
+		return "12-years";
+	}
+	else if(loanName.equalsIgnoreCase("Vehicle"))
+	{
+		return "6-years";
+	}
+	else if(loanName.equalsIgnoreCase("Student"))
+	{
+		return "10 years";
+	}
+	else
+	{
+		System.out.println("No specific Loan");
+	}
+	return null;
+}
+
+public String[] loanTypeAndDetails(char l)//to get result as many values you can use Array or ArrayList
 {	
 	if(l == 'H')
 	{
-	String[] detailsofLoan = {"LocationofHouse","NoofBathrooms","New HouseorOldHouse"};	
+	String[] detailsofLoan = {"LocationofHouse","NoofBedrooms","No,of Bathrooms","New House or Old House"};	
 	return detailsofLoan;
 	}
 	else if( l=='C')
@@ -65,8 +89,7 @@ public String[] loanTypeAndDetails(char l)
 	{
 		String[] detailsofLoan = {"Student average","Education Degree","PArents details"};
 		return detailsofLoan;
-	}
-		
+	}		
 	else
 	{
 		System.out.println("No Loan details matched");
@@ -74,13 +97,31 @@ public String[] loanTypeAndDetails(char l)
 	return null;
 }
 
-public ArrayList getApplicantDetails(String applicantName)
+public ArrayList<Object> getApplicantDetails(String applicantName)
 {
-	ArrayList al = new ArrayList();
+	ArrayList<Object> al = new ArrayList<Object>();
 	if(applicantName.equalsIgnoreCase("Tom"))
 	{
-		al.add(arg0)
+		al.add("Home Loan");
+		al.add(2200);
+		al.add(12);
+		al.add(300000);
 	}
+	else if(applicantName.equalsIgnoreCase("Ram"))
+	{
+		al.add("Student Loan");
+		al.add(1200);
+		al.add(6);
+		al.add(100000);
+	}
+	else if(applicantName.equalsIgnoreCase("Alice"))
+	{
+		al.add("Vehicle Loan");
+		al.add(900);
+		al.add(5);
+		al.add(10000);
+	}
+	
 	return al;
 }
 }
