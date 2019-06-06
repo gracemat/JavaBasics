@@ -7,6 +7,40 @@ public class ABankLoan {
 		ABankLoan obj = new ABankLoan();
 		obj.bankName();
 		
+		String applname = obj.getApplicantName();
+		System.out.println(applname);
+		
+		int c=obj.getApplicantCategory();
+		System.out.println(c);
+		
+		double am=obj.getTotalAmount();
+		System.out.println(am);
+		
+		System.out.println(obj.isEligible());
+		
+		double payamount = obj.paymentAmount(2020.5f, 100.5f);
+		System.out.println(payamount);
+		
+		String loan=obj.getDiffLoan("Home");
+		System.out.println(loan);
+
+		String loanarrDetails[] = obj.loanTypeAndDetails('h');
+		//System.out.println(loanarrDetails);
+		for(int i=0;i<loanarrDetails.length;i++) {
+		System.out.println(loanarrDetails[i]);
+		}
+		
+		ArrayList<Object> arrobj = obj.getApplicantDetails("Ram");
+		System.out.println(arrobj);
+		
+		ArrayList<Object> arrobj2 = obj.getApplicantDetails("Tom");
+		for(int i=0;i<4;i++)
+			{
+			System.out.println(arrobj2.get(i));
+			}
+		
+		
+	
 	}
 public void bankName()
 {
@@ -46,7 +80,7 @@ public boolean isEligible() {//we need two return statements here one for if blo
 	return flag;
 }
 
-public float  paymentAmount(float interestamount,float monthlyinstalment)
+public float  paymentAmount(float interestamount,float monthlyinstalment)//Generic method
 {
 	System.out.println("Payment this month is: ");
 	float payment = interestamount + monthlyinstalment;
@@ -75,9 +109,9 @@ public String getDiffLoan(String loanName) {
 
 public String[] loanTypeAndDetails(char l)//to get result as many values you can use Array or ArrayList
 {	
-	if(l == 'H')
+	if(l == 'H'|| l=='h')
 	{
-	String[] detailsofLoan = {"LocationofHouse","NoofBedrooms","No,of Bathrooms","New House or Old House"};	
+	String[] detailsofLoan = {"LocationofHouse","NoofBedrooms","NoofBathrooms","New House or Old House"};	
 	return detailsofLoan;
 	}
 	else if( l=='C')
