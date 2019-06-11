@@ -42,6 +42,13 @@ public class StringFunctions {
 		System.out.println(st.trim());
 		System.out.println(st.replace(" ",""));
 		
-	}
-
+		
+		String custDetails = "John;31;Account Created;2010;Pat;34;2013";
+		String cust[] = custDetails.split(";");
+		for(int i=0;i<cust.length;i++) {
+			System.out.println(cust[i]);
+		}
+		
+		
+			}
 }
